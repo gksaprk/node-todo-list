@@ -1,30 +1,30 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const ProductsSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
+const ProductsSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+    author: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ['FOR_SALE', 'SOLD_OUT'],
+      default: 'FOR_SALE',
+    },
   },
-  content: {
-    type: String,
-    required: true,
-  },
-  author: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: Number,
-    required: true,
-  },
-  status: {
-    type: String,
-    required: false,
-  },
-  createdAt: {
-    type: Date,
-    required: false,
-  },
-});
+  { timestamps: true }
+);
 
-export default mongoose.model("Product", ProductsSchema);
+export default mongoose.model('Product', ProductsSchema);
