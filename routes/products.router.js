@@ -34,8 +34,8 @@ router.post('/products', async (req, res, next) => {
 router.get('/products', async (req, res, next) => {
   try {
     const products = await Product.find()
-      .select('_id title author status createAt')
-      .sort({ createAt: -1 });
+      .select('_id title author status createdAt')
+      .sort({ createdAt: -1 });
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: '예기치 못한 에러가 발생하였습니다.' });
@@ -46,7 +46,7 @@ router.get('/products', async (req, res, next) => {
 router.get('/products/:productId', async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.productId).select(
-      '_id title content author status createAt'
+      '_id title content author status createdAt'
     );
 
     if (!product) {

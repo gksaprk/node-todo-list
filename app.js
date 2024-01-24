@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const router = express.Router();
-const port = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
 router.get('/', (req, res) => {
   return res.json({ message: 'Hi!' });
