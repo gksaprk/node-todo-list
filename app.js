@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+// const PORT = 3000;
 
 // 몽고db에 접속
 connect();
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const router = express.Router();
-// const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 router.get('/', (req, res) => {
   return res.json({ message: 'Hi!' });
