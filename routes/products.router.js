@@ -1,6 +1,5 @@
-import express from 'express';
-import Product from '../schemas/products.schema.js';
-
+const express = require('express');
+const Product = require('../schemas/products.schema');
 const router = express.Router();
 
 // 상품작성 API-----------------------(POST)
@@ -129,4 +128,4 @@ router.delete('/products/:productId', async (req, res, next) => {
   }
 });
 
-export default router;
+module.exports = router;
